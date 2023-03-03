@@ -6,8 +6,13 @@ using System;
 namespace PierresTracker.Tests
 {
   [TestClass]
-  public class VendorTests
+  public class VendorTests : IDisposable
   {
+    public void Dispose()
+    {
+      Vendor.ClearAll();
+    }
+
     [TestMethod]
     public void VendorConstructor_CreatesInstanceOfVendor_Vendor()
     {
@@ -39,7 +44,28 @@ namespace PierresTracker.Tests
       // Will look into later
       Vendor newVendor = new Vendor("vendorName", "vendorDescription");
       int result = newVendor.Id;
-      Assert.AreEqual(4, result);
+      // Assert.AreEqual(4, result);
+      // Appon new test result comes back as 1
+      // 1 was the original number I expected in this test
+      Assert.AreEqual(1, result);
+
+    }
+
+        [TestMethod]
+    public void GetAll_ReturnsAllCategoryObjects_CategoryList()
+    {
+      //Arrange
+      string vendor1 = "Vendor1";
+      string vendor2 = "Vendor2";
+      Vendor newVendor1 = new Vendor(vendor1, "description");
+      Vendor newVendor2 = new Vendor(vendor2, "description");
+      List<Vendor> newList = new List<Vendor> { newVendor1, newVendor2 };
+
+      //Act
+      List<Vendor> result = Vendor.GetAll();
+
+      //Assert
+      CollectionAssert.AreEqual(newList, result);
     }
   }
 }
