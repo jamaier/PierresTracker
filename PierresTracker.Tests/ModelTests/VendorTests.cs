@@ -48,11 +48,11 @@ namespace PierresTracker.Tests
       // Appon new test result comes back as 1
       // 1 was the original number I expected in this test
       Assert.AreEqual(1, result);
-
+      // IDispose ClearAll()
     }
 
-        [TestMethod]
-    public void GetAll_ReturnsAllCategoryObjects_CategoryList()
+    [TestMethod]
+    public void GetAll_ReturnsAllVendorObjects_CategoryList()
     {
       //Arrange
       string vendor1 = "Vendor1";

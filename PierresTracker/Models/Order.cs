@@ -9,6 +9,7 @@ namespace PierresTracker.Models
     public string Description { get; set; }
     public string Price { get; set; } // Change to int when implementing depending on time
     public string Date { get; set; }
+    private static List<Order> _instances = new List<Order> { };
 
     public Order(string orderTitle, string orderDescription, string orderPrice, string orderDate)
     {
@@ -16,6 +17,17 @@ namespace PierresTracker.Models
       Description = orderDescription;
       Price = orderPrice;
       Date = orderDate;
+      _instances.Add(this);
+    }
+
+    public static List<Order> GetAll()
+    {
+      return _instances;
+    }
+
+        public static void ClearAll()
+    {
+      _instances.Clear();
     }
   }
 }
