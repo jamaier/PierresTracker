@@ -4,3 +4,25 @@
 
 @using PierresTracker.Models;
 
+<h2>Vendor: </h2>
+<h3>@Model["vendor"].Name</h3>
+<h2>Description:</h3>
+<h4>@Model["vendor"].Description</h4>
+<h2>Orders:</h3>
+
+<ol>
+  @foreach (Order order in @Model["orders"])
+  {
+    <li>
+      <a href='/vendors/@Model["vendor"].Id/orders/@order.Id'>@order.Title</a>
+      <form action='/vendors/@Model["vendor"].Id/orders/@order.Id/delete' method="post"><button type="submit">[----]</button>
+      </form>
+    </li>
+  }
+</ol>
+
+<form action='/vendors/@Model["vendor"].Id/orders/new' method="get"><button type="submit">new order</button></form>
+<form action='/vendors/@Model["vendor"].Id/orders/delete' method="post"><button type="submit">Delete Orders</button>
+</form>
+<p><a href='/vendors'>Vendor List</a></p>
+<p><a href='/'>Home</a></p>

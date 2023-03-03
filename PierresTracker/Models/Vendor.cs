@@ -36,11 +36,9 @@ namespace PierresTracker.Models
       _instances.Clear();
     }
 
-    public static void DeleteVendor(int searchId)
+    public static void RemoveVendor(int searchId)
     {
       _instances.RemoveAll(vendor => vendor.Id == searchId);
     }
-
-
   }
 }

@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using PierresTracker.Models;
-using System;
 
 namespace PierresTracker.Controllers
 {
@@ -25,6 +24,22 @@ namespace PierresTracker.Controllers
     {
       Vendor newVendor = new Vendor(vendorName, vendorDescription);
       return RedirectToAction("Index");
+    }
+
+    [HttpPost("/vendors/{id}/delete")]
+    public ActionResult DeleteVendor(int id)
+    {
+      Vendor.RemoveVendor(id);
+      return RedirectToAction("Index");
+    }
+
+    [HttpGet("/vendors/{id}")]
+    public ActionResult Show(int id)
+    {
+      Dictionary<string, object> model = new Dictionary<string, object>();
+      Vendor selectedVendor = Vendor.Find(id);
+      model.Add("vendor", selectedVendor);
+      return View(model);
     }
   }
 }
