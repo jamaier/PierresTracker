@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
+
 namespace PierresTracker.Models
 {
   public class Vendor
@@ -9,7 +11,7 @@ namespace PierresTracker.Models
     public string Description { get; set; }
     private static List<Vendor> _instances = new List<Vendor> { };
     public int Id { get; }
-
+    public List<Order> Orders = new List<Order>() { };
 
     public Vendor(string vendorName, string vendorDescription)
     {
@@ -17,6 +19,7 @@ namespace PierresTracker.Models
       Description = vendorDescription;
       _instances.Add(this);
       Id = _instances.Count;
+      Orders = new List<Order>{};
     }
     public static List<Vendor> GetAll()
     {
@@ -33,9 +36,11 @@ namespace PierresTracker.Models
       _instances.Clear();
     }
 
-    public static void Delete(int searchId)
-{
-    _instances.RemoveAll(vendor => vendor.Id == searchId);
-}
+    public static void DeleteVendor(int searchId)
+    {
+      _instances.RemoveAll(vendor => vendor.Id == searchId);
+    }
+
+
   }
 }

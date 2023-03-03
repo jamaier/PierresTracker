@@ -5,13 +5,13 @@ using System;
 
 namespace PierresTracker.Controllers
 {
-  public class VendorController : Controller
+  public class VendorsController : Controller
   {
     [HttpGet("/vendors")]
     public ActionResult Index()
     {
-      List<Vendor> vendorList = Vendor.GetAll();
-      return View(vendorList);
+      List<Vendor> allVendors = Vendor.GetAll();
+      return View(allVendors);
     }
 
     [HttpGet("/vendors/new")]
@@ -26,14 +26,5 @@ namespace PierresTracker.Controllers
       Vendor newVendor = new Vendor(vendorName, vendorDescription);
       return RedirectToAction("Index");
     }
-
-    [HttpPost("/vendors/delete")]
-    public ActionResult DeleteAllVendors()
-    {
-      Vendor.ClearAll();
-      return RedirectToAction("Index");
-    }
-
-
   }
 }
