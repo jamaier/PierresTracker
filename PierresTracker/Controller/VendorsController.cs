@@ -26,13 +26,6 @@ namespace PierresTracker.Controllers
       return RedirectToAction("Index");
     }
 
-    [HttpPost("/vendors/{id}/delete")]
-    public ActionResult DeleteVendor(int id)
-    {
-      Vendor.RemoveVendor(id);
-      return RedirectToAction("Index");
-    }
-
     [HttpGet("/vendors/{id}")]
     public ActionResult Show(int id)
     {
@@ -56,22 +49,6 @@ namespace PierresTracker.Controllers
       model.Add("vendor", foundVendor);
       return View("Show", model);
     }
-
-    [HttpPost("/vendors/{vendorId}/orders/delete")]
-    public ActionResult Orders(int vendorId)
-    {
-      Vendor vendor = Vendor.Find(vendorId);
-      vendor.DeleteAllOrders();
-      return RedirectToAction("Show", new { id = vendorId });
-
-    }
-
-    [HttpPost("/vendors/{vendorId}/orders/{orderId}/delete")]
-    public ActionResult DeleteOrder(int vendorId, int orderId)
-    {
-      Vendor vendor = Vendor.Find(vendorId);
-      Vendor.RemoveOrder(orderId);
-      return RedirectToAction("Show", new { id = vendorId });
-    }
+    
   }
 }

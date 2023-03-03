@@ -15,14 +15,10 @@
   {
     <li>
       <a href='/vendors/@Model["vendor"].Id/orders/@order.Id'>@order.Title</a>
-      <form action='/vendors/@Model["vendor"].Id/orders/@order.Id/delete' method="post"><button type="submit">[----]</button>
-      </form>
     </li>
   }
 </ol>
 
-<form action='/vendors/@Model["vendor"].Id/orders/new' method="get"><button type="submit">new order</button></form>
-<form action='/vendors/@Model["vendor"].Id/orders/delete' method="post"><button type="submit">Delete Orders</button>
-</form>
+<p><a href='/vendors/@Model["vendor"].Id/orders/new'>Add another order</a></p>
 <p><a href='/vendors'>Vendor List</a></p>
 <p><a href='/'>Home</a></p>
