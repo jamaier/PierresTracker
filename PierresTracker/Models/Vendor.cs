@@ -6,11 +6,12 @@ namespace PierresTracker.Models
   {
     //Starting with Vendor class to add orders to later.
     public string Name { get; set; }
-    // public string Description { get; set; }
+    public string Description { get; set; }
 
-    public Vendor(string vendorName)
+    public Vendor(string vendorName, string vendorDescription)
     {
       Name = vendorName;
+      Description = vendorDescription;
     }
   }
 }
