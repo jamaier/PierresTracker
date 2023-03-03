@@ -42,5 +42,14 @@ namespace PierresTracker.Tests
       Order newOrder = new Order("Test", "Test", orderPrice, "Test");
       Assert.AreEqual(orderPrice, newOrder.Price);
     }
+    
+    
+    [TestMethod]
+    public void OrderProperties_ChecksOrderDate_String()
+    {
+      string orderDate = "Test Date";
+      Order newOrder = new Order("Test", "Test", "Test", orderDate);
+      Assert.AreEqual(orderDate, newOrder.Date);
+    }
   }
 }
