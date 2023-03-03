@@ -18,11 +18,20 @@ namespace PierresTracker.Tests
     
     
     [TestMethod]
-    public void OrderProperties_ChecksOrderProperties_String()
+    public void OrderProperties_ChecksOrderTitle_String()
     {
       string orderTitle = "Test Title";
       Order newOrder = new Order(orderTitle, "Test", "Test", "Test");
       Assert.AreEqual(orderTitle, newOrder.Title);
+    }
+    
+    
+    [TestMethod]
+    public void OrderProperties_ChecksOrderDescription_String()
+    {
+      string orderDescription = "Test Description";
+      Order newOrder = new Order("Test", orderDescription, "Test", "Test");
+      Assert.AreEqual(orderDescription, newOrder.Description);
     }
   }
 }
