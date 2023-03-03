@@ -19,7 +19,7 @@ namespace PierresTracker.Models
       Description = vendorDescription;
       _instances.Add(this);
       Id = _instances.Count;
-      Orders = new List<Order>{};
+      Orders = new List<Order> { };
     }
     public static List<Vendor> GetAll()
     {
@@ -31,14 +31,21 @@ namespace PierresTracker.Models
       return _instances[searchId - 1];
     }
 
+    public void DeleteAllOrders(int searchId)
+    {
+      Orders.RemoveAll(order => order.Id == searchId);
+    }
+    public static void RemoveOrder(int searchId)
+    {
+      _instances.RemoveAll(order => order.Id == searchId);
+    }
+    public void DeleteAllOrders()
+    {
+      Orders.Clear();
+    }
     public static void ClearAll()
     {
       _instances.Clear();
-    }
-
-    public static void RemoveVendor(int searchId)
-    {
-      _instances.RemoveAll(vendor => vendor.Id == searchId);
     }
   }
 }
