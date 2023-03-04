@@ -1,0 +1,9 @@
+body {
+  background-color: rgb(200, 200, 203);
+  padding-left: 30px;
+}
+
+a {
+  text-decoration: none;
+  color: red;
+}

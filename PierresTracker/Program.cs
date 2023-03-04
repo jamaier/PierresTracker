@@ -14,7 +14,7 @@ namespace PierresTracker
       WebApplication app = builder.Build();
 
       app.UseHttpsRedirection();
-      // app.UseStaticFiles();
+      app.UseStaticFiles();
       app.UseRouting();
 
       app.MapControllerRoute(
