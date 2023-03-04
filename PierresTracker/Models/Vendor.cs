@@ -9,8 +9,8 @@ namespace PierresTracker.Models
 
     public string Name { get; set; }
     public string Description { get; set; }
-    private static List<Vendor> _instances = new List<Vendor> { };
     public int Id { get; }
+    private static List<Vendor> _instances = new List<Vendor> { };
     public List<Order> Orders = new List<Order>() { };
 
     public Vendor(string vendorName, string vendorDescription)
@@ -38,23 +38,6 @@ namespace PierresTracker.Models
     public void AddOrder(Order order)
     {
       Orders.Add(order);
-    }
-
-    // public static void RemoveVendor(int id)
-    // {
-    //   _instances.RemoveAll(vendor => vendor.Id == id);
-    // }
-    // public void DeleteAllOrders(int searchId)
-    // {
-    //   Orders.RemoveAll(order => order.Id == searchId);
-    // }
-    // public static void RemoveOrder(int searchId)
-    // {
-    //   _instances.RemoveAll(order => order.Id == searchId);
-    // }
-    public void DeleteAllOrders()
-    {
-      Orders.Clear();
     }
 
   }
